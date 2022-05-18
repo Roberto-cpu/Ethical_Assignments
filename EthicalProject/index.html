@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Log In</h1>
+      </div>
+      <div name="divBody" id="divBody" class="divBody">
+
+        <script type="text/javascript">
+          const quesry_str = window.location.search;
+          const urlParams = new URLSearchParams(quesry_str);
+          const errorParam = urlParams.get('error');
+          if (errorParam != null) {
+            var newElement = document.createElement("h3");
+            var newContent = document.createTextNode("Wrong Credentials");
+            newElement.appendChild(newContent);
+            document.getElementById('divBody').appendChild(newElement);
+          }
+        </script>
+
+        <form class="login" id="login" name="login" action="dinamic/php/login.php" method="post">
+          <input name="email" type="email" required id="email" placeholder="mario.rossi@gmail.com"> <br>
+          <input name="password" type="password" id="password" required placeholder="Password"> <br>
+          <input name="submit" id="submit" type="submit" value="Continue">
+        </form>
+        <p> Do you not have an account? Click <a href="static/html/sign_in_page.html">here</a> to sign in.
+      </div>
+      <div class="footer">
+        <h3>Ethical Hacking Project</h3>
+      </div>
+    </div>
+  </body>
+</html>

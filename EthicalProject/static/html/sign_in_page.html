@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign In Page</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="../../dinamic/js/sign_in.js"></script>
+
+    <div class="container">
+      <div class="header">
+        <h1>Sign In</h1>
+      </div>
+      <div class="divBody" id="divBody">
+        <script type="text/javascript">
+          const quesry_str = window.location.search;
+          const urlParams = new URLSearchParams(quesry_str);
+          const errorParam = urlParams.get('dberror');
+          if (errorParam != null) {
+            var newElement = document.createElement("h3");
+            var newContent = document.createTextNode("Error while saving the new user");
+            newElement.appendChild(newContent);
+            document.getElementById('divBody').appendChild(newElement);
+          }
+        </script>
+
+        <form class="sign_in" id="sign_in" name="sign_in"  method="post">
+          <label for="name">Name: </label> <input name="name" type="text" id="name" required> <br>
+          <label for="surname">Surname: </label> <input name="surname" type="text" id="surname" required> <br>
+          <label for="email">Email: </label> <input name="email" type="text" id="email" required> <br>
+          <label for="password">Password: </label> <input name="l_password" type="password" id="l_password" title="Enter a password that contains at least one number and one capital letter and with a length of minimun of 8 character and maximun 16 character" autocomplete="new-password" required> <button type="button" name="show-pwd" onclick="show_password()">Show</button> <br>
+          <label for="conf_pwd">Confirm Password: </label> <input name="conf_pwd" type="password" id="conf_pwd" required> <button type="button" name="show-pwd" onclick="show_conf_password()">Show</button> <br>
+          <input type="submit" id="submit" value="Submit" onclick="validate()">
+          <input type="button" id="delete" value="delete" onclick="javascript:window.location.href='../../index.html'">
+        </form>
+      </div>
+      <div class="footer">
+        <h3>Ethical Hacking Project</h3>
+      </div>
+    </div>
+  </body>
+</html>
